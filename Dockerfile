@@ -3,7 +3,7 @@ FROM golang:1.25.0-bookworm AS mc-buider
 RUN go install github.com/minio/mc@latest
 
 
-FROM python:3.12.4-slim-bookworm
+FROM python:3.13.7-slim-bookworm
 
 WORKDIR /app
 
