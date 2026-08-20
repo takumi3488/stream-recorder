@@ -1,4 +1,4 @@
-FROM golang:1.26.6-bookworm AS mc-buider
+FROM golang:1.27.0-bookworm AS mc-buider
 
 RUN go install github.com/minio/mc@latest
 
