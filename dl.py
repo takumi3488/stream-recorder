@@ -22,10 +22,10 @@ else:
 
 print(f"LIVE_ID: {os.environ['LIVE_ID']}")
 
-# Setup Minio Client (only if not using local directory)
+# Setup S3 client (only if not using local directory).
+# The bucket is provisioned out of band (Cloudflare R2, bucket-scoped token), so it is not created here.
 if not args.directory:
     subprocess.run(["mc", "alias", "set", "minio", os.environ["S3_ENDPOINT"], os.environ["S3_ACCESS_KEY"], os.environ["S3_SECRET_KEY"]])
-    subprocess.run(["mc", "mb", "--ignore-existing", f"minio/{os.environ['S3_BUCKET']}"])
 
 # Set the base directory for saving files
 base_dir = args.directory if args.directory else "/data"
